@@ -10,16 +10,26 @@ Todo:
 */
 
 function App() {
-  const {isLoading, isError, data } = useFetchAPI('https://randomuser.me/api/?results=2')
+  const {isLoading, isError, data } = useFetchAPI('https://randomuser.me/api/?results=10')
  
+  if(isLoading) return `<h2>Loading.....</h2>`
 
+  console.log("Data app: ", data)
 
  
   return (
     <div className="App">
       <h1>Api Practice</h1>
-      {data && <p>{data.results[0].name.first}</p>}
-      {data && <p>{data.results[0].name.last}</p>}
+      
+        { data ?
+         data.results.map((data, idx) => (
+          <p key={idx}>
+            {` ${data.name.title}, ${data.name.first}, ${data.name.last}`}
+          </p>
+         )) :
+         "data not here"
+        }
+     
      </div>
   );
 }
