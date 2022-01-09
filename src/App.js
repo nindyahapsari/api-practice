@@ -1,8 +1,8 @@
 import useFetchAPI from "./Hooks/useFetchData";
 import React, { useState, useEffect } from 'react'
 
-
 import './App.css';
+import Forminfo from "./components/Forminfo";
 
 /*     
 Todo:
@@ -61,6 +61,8 @@ function App() {
           
         <button onClick={fetchingDataPage}>Fetch Data</button>
         {/* <pre>{JSON.stringify(data, null, 2)}</pre>  */}
+
+        <Forminfo />
 
       </div>
     );
